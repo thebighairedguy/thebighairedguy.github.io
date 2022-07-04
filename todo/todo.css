@@ -1,0 +1,150 @@
+#todo-bodytag {
+  margin: 0;
+  background-color: #fafafa;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+#todo-bg-img {
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+#todo-main {
+  z-index: 1;
+  position: relative;
+  padding: 10% 30%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+#todo-title {
+  color: #fafafa;
+  font-weight: 700;
+  font-size: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#todo-title > h1 {
+  margin: 0;
+  text-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+#todo-title > i {
+  margin: 0;
+  text-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#todo-input {
+  background-color: white;
+  border-radius: 4px;
+  padding: 2%;
+  color: black;
+  display: flex;
+  column-gap: 1.5%;
+  font-size: 80%;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+#todo-input > i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#todo-input > form {
+  width: 100%;
+}
+
+#todo-input > form > input {
+  width: 100%;
+
+  border: 0;
+  font-family: "josefin Sans", sans-serif;
+  color: darkslategrey;
+}
+
+#todo-card {
+  background-color: #fafafa;
+  border-radius: 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+#tasks-div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.task-line {
+  color: darkslategrey;
+  border-bottom: 1px solid darkgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 2%;
+  column-gap: 2%;
+  font-size: 80%;
+}
+
+.task-line > div > i,
+.task-line > i {
+  cursor: pointer;
+}
+
+.task-line > p {
+  margin: 0;
+  width: 100%;
+}
+
+#card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+  font-size: 80%;
+  color: darkgray;
+}
+
+#card-bottom > p {
+  margin: 0;
+}
+
+#card-bottom > input,
+#card-bottom > div > input {
+  border: 0;
+  background-color: #fafafa;
+  font-family: "Josefin Sans", sans-serif;
+  color: darkgray;
+  cursor: pointer;
+}
+
+#todo-main > p {
+  color: darkgray;
+  text-align: center;
+  text-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 480px) {
+  #card-bottom {
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  #card-bottom > div > input {
+    display: flex;
+  }
+  #card-bottom > input,
+  #card-bottom > div > input {
+    padding: 0;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Basar's Profile</title>
+    <link rel="stylesheet" href="todo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8e0785f7b4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="favicon-32x32.png" />
+  </head>
+
+  <body id="todo-bodytag">
+    <img id="todo-bg-img" src="bg-desktop-light.jpg" />
+    <section id="todo-main">
+      <div id="todo-title">
+        <h1>T O D O</h1>
+        <i class="fa-solid fa-moon"></i>
+      </div>
+      <div id="todo-input" name="todo-input">
+        <i class="fa-regular fa-circle"></i>
+        <form name="task-form">
+          <input type="text" id="task-input" name="task-input" />
+        </form>
+      </div>
+      <div id="todo-card">
+        <div id="tasks-div">
+          <!--Task #-->
+        </div>
+        <div id="card-bottom">
+          <p id="total-tasks">0 items left</p>
+          <div id="card-bottom-mid">
+            <input
+              type="button"
+              class="all-active-completed"
+              value="All"
+              id="all"
+            />
+            <input
+              type="button"
+              class="all-active-completed"
+              value="Active"
+              id="active"
+              onclick="active()"
+            />
+            <input
+              type="button"
+              class="all-active-completed"
+              value="Completed"
+              id="completed"
+            />
+          </div>
+          <input
+            type="button"
+            class="all-active-completed"
+            value="Clear Completed"
+            onclick="clearCompleted()"
+          />
+        </div>
+      </div>
+      <p>Drag and drop to reorder list</p>
+    </section>
+    <script src="todo.js"></script>
+  </body>
+</html>
