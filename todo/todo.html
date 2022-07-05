@@ -32,7 +32,13 @@
     <section id="todo-main">
       <div id="todo-title">
         <h1>T O D O</h1>
-        <i class="fa-solid fa-moon"></i>
+        <div id="moon-sun-holder">
+          <i
+            class="fa-solid fa-moon"
+            id="moon"
+            onclick="changeMode(this)"
+          ></i>
+        </div>
       </div>
       <div id="todo-input" name="todo-input">
         <i class="fa-regular fa-circle"></i>
@@ -67,6 +73,7 @@
             class="all-active-completed"
             value="Clear Completed"
             onclick="clearCompleted()"
+            id="clearButton"
           />
         </div>
       </div>

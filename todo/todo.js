@@ -6,8 +6,13 @@ const tasksdiv = document.getElementById("tasks-div");
 const numberShown = document.getElementById("total-tasks");
 const activeButton = document.getElementById("active");
 const completedButton = document.getElementById("completed");
+const clearButton = document.getElementById("clearButton");
 const activeButtonColor = getComputedStyle(activeButton).color;
 const completedButtonColor = getComputedStyle(completedButton).color;
+const todo_bodytag = document.getElementById("todo-bodytag");
+const todo_input = document.getElementById("todo-input");
+const task_input = document.getElementById("task-input");
+const todo_card = document.getElementById("todo-card");
 
 var Pcompleted = [];
 var Pactive = [];
@@ -32,12 +37,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const input = form["task-input"];
 
-  //first x=0. Then, if Completed is on, make x=1, if x=1 then first disable it
-
   tg_num++;
 
   tasksdiv.innerHTML += `<div id="task_num_${tg_num}" class="task-line" onmouseenter="hoverOn(this)" onmouseleave="hoverOff(this)" ><div class="checkmark-i"><i class="fa-regular fa-circle" onclick="checktask(this)" name="uncheckedtick"></i></div><p class="task-text-name">${input.value}</p><i class="fa-solid fa-xmark" name="cross" onclick="removetask(this)"></i></div>`;
 
+  //store in Pactive
   Pactive.push(tasksdiv.lastChild);
 
   //not Pcompleted because we arent changing that here, we are only adding to Pactive here
@@ -45,7 +49,8 @@ form.addEventListener("submit", (e) => {
   console.log(Pactive.length);
   numberShown.innerText = Pactive.length + " items left";
 
-  //Now re-enable Completed if x=1 it was enabled beforehand
+  activeButton.click();
+  activeButton.click();
 });
 
 function removetask(element) {
@@ -92,6 +97,9 @@ function checktask(element) {
 
   console.log(Pactive.length);
   numberShown.innerText = Pactive.length + " items left";
+
+  activeButton.click();
+  activeButton.click();
 }
 
 function unchecktask(element) {
@@ -102,7 +110,14 @@ function unchecktask(element) {
   for (let x = 0; x < Pcompleted.length; x++) {
     if (Pcompleted[x].id == store_element.id) {
       //edit css properties of line
-      element.parentNode.nextSibling.style.color = "rgb(47, 79, 79)";
+
+      if (z % 2 == !0) {
+        //night mode
+        element.parentNode.nextSibling.style.color = "";
+      } else if (z % 2 == 0) {
+        element.parentNode.nextSibling.style.color = "";
+      }
+
       element.parentNode.nextSibling.style.textDecoration = "none";
 
       //add to Pcompleted and remove from Pactive
@@ -117,12 +132,25 @@ function unchecktask(element) {
 
   console.log(Pactive.length);
   numberShown.innerText = Pactive.length + " items left";
+
+  activeButton.click();
+  activeButton.click();
 }
 
 function clearCompleted() {
-  //remove taskdiv then add only active and delete Pcompleted
+  //remove taskdiv then append only active and delete Pcompleted
 
-  activeButton.click();
+  const activeButtonColor = getComputedStyle(activeButton).color;
+  const completedButtonColor =
+    getComputedStyle(completedButton).color;
+
+  if (activeButtonColor == "rgb(169, 169, 169)") {
+    activeButton.click();
+  }
+
+  if (completedButtonColor == "rgb(169, 169, 169)") {
+    completedButton.click();
+  }
 
   tasksdiv.innerHTML = "";
   Pactive.forEach((element) => {
@@ -138,10 +166,10 @@ function filter_out(button) {
   //change color of button using if
   const buttonColor = getComputedStyle(button).color;
 
-  if (buttonColor == "rgb(0, 0, 255)") {
+  if (buttonColor == "rgb(58, 123, 253)") {
     button.style.color = "rgb(169, 169, 169)";
   } else if (buttonColor == "rgb(169, 169, 169)") {
-    button.style.color = "rgb(0, 0, 255)";
+    button.style.color = "rgb(58, 123, 253)";
   }
 
   const activeButtonColor = getComputedStyle(activeButton).color;
@@ -149,8 +177,8 @@ function filter_out(button) {
     getComputedStyle(completedButton).color;
 
   if (
-    activeButtonColor == "rgb(0, 0, 255)" &&
-    completedButtonColor == "rgb(0, 0, 255)"
+    activeButtonColor == "rgb(58, 123, 253)" &&
+    completedButtonColor == "rgb(58, 123, 253)"
   ) {
     Pactive.forEach((element) => {
       tasksdiv.appendChild(element);
@@ -159,7 +187,7 @@ function filter_out(button) {
       tasksdiv.appendChild(element);
     });
   } else if (
-    activeButtonColor == "rgb(0, 0, 255)" &&
+    activeButtonColor == "rgb(58, 123, 253)" &&
     completedButtonColor == "rgb(169, 169, 169)"
   ) {
     Pactive.forEach((element) => {
@@ -167,7 +195,7 @@ function filter_out(button) {
     });
   } else if (
     activeButtonColor == "rgb(169, 169, 169)" &&
-    completedButtonColor == "rgb(0, 0, 255)"
+    completedButtonColor == "rgb(58, 123, 253)"
   ) {
     Pcompleted.forEach((element) => {
       tasksdiv.appendChild(element);
@@ -179,3 +207,55 @@ function filter_out(button) {
     console.log("both filtered out.");
   }
 }
+
+//Night-Day Mode
+
+let z = 0;
+const img_holder = document.getElementById("todo-bg-img");
+
+function changeMode(button) {
+  z++;
+
+  if (z % 2 == !0) {
+    //night mode
+    button.parentElement.innerHTML =
+      '<i class="fa-solid fa-sun" id="sun" onclick="changeMode(this)"></i>';
+    img_holder.src = "bg-desktop-dark.jpg";
+
+    todo_bodytag.style.backgroundColor = "rgb(24, 24, 36)";
+
+    todo_input.style.backgroundColor = "rgb(37, 39, 60)";
+    task_input.style.backgroundColor = "rgb(37, 39, 60)";
+    todo_card.style.backgroundColor = "rgb(37, 39, 60)";
+    activeButton.style.backgroundColor = "rgb(37, 39, 60)";
+    completedButton.style.backgroundColor = "rgb(37, 39, 60)";
+    clearButton.style.backgroundColor = "rgb(37, 39, 60)";
+
+    todo_input.style.color = "rgb(250, 250, 250)";
+    task_input.style.color = "rgb(250, 250, 250)";
+    todo_card.style.color = "rgb(250, 250, 250)";
+  } else if (z % 2 == 0) {
+    //day mode
+    button.parentElement.innerHTML =
+      '<i class="fa-solid fa-moon" id="moon" onclick="changeMode(this)"></i>';
+    img_holder.src = "bg-desktop-light.jpg";
+
+    todo_bodytag.style.backgroundColor = "rgb(250, 250, 250)";
+
+    todo_input.style.backgroundColor = "rgb(250, 250, 250)";
+    task_input.style.backgroundColor = "rgb(250, 250, 250)";
+    todo_card.style.backgroundColor = "rgb(250, 250, 250)";
+    activeButton.style.backgroundColor = "rgb(250, 250, 250)";
+    completedButton.style.backgroundColor = "rgb(250, 250, 250)";
+    clearButton.style.backgroundColor = "rgb(250, 250, 250)";
+
+    todo_input.style.color = "rgb(47, 79, 79)";
+    task_input.style.color = "rgb(47, 79, 79)";
+    todo_card.style.color = "rgb(47, 79, 79)";
+  }
+
+  //color of task lines with check or unchecked ticks
+}
+
+//bottom border
+//mobile website imgs

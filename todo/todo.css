@@ -1,6 +1,6 @@
 #todo-bodytag {
   margin: 0;
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -21,7 +21,7 @@
 }
 
 #todo-title {
-  color: #fafafa;
+  color: rgb(250, 250, 250);
   font-weight: 700;
   font-size: 100%;
   display: flex;
@@ -33,14 +33,14 @@
   text-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-#todo-title > i {
+#todo-title > div > i {
   margin: 0;
   text-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
 #todo-input {
-  background-color: white;
+  background-color: rgb(250, 250, 250);
   border-radius: 4px;
   padding: 2%;
   color: black;
@@ -61,15 +61,15 @@
 }
 
 #todo-input > form > input {
+  background-color: rgb(250, 250, 250);
   width: 100%;
-
   border: 0;
-  font-family: "josefin Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   color: rgb(47, 79, 79);
 }
 
 #todo-card {
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
   border-radius: 4px;
   padding: 0;
   display: flex;
@@ -85,8 +85,7 @@
 }
 
 .task-line {
-  color: rgb(47, 79, 79);
-  border-bottom: 1px solid rgb(169, 169, 169);
+  border-bottom: 1px solid rgb(169, 169, 169); /*rgb(169, 169, 169) rgb(47, 79, 79)*/
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -115,7 +114,7 @@
   align-items: center;
   padding: 2%;
   font-size: 80%;
-  color: #a9a9a9;
+  color: rgb(169, 169, 169);
 }
 
 #card-bottom > p {
@@ -127,12 +126,12 @@
   border: 0;
   background-color: rgb(250, 250, 250);
   font-family: "Josefin Sans", sans-serif;
-  color: #a9a9a9;
+  color: rgb(169, 169, 169);
   cursor: pointer;
 }
 
 #card-bottom > div > input {
-  color: rgb(0, 0, 255);
+  color: rgb(58, 123, 253);
 }
 
 #todo-main > p {
