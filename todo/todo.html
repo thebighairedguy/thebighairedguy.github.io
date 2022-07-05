@@ -24,6 +24,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="shortcut icon" href="favicon-32x32.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body id="todo-bodytag">
@@ -49,21 +50,16 @@
             <input
               type="button"
               class="all-active-completed"
-              value="All"
-              id="all"
-            />
-            <input
-              type="button"
-              class="all-active-completed"
               value="Active"
               id="active"
-              onclick="active()"
+              onclick="filter_out(this)"
             />
             <input
               type="button"
               class="all-active-completed"
               value="Completed"
               id="completed"
+              onclick="filter_out(this)"
             />
           </div>
           <input
@@ -74,7 +70,7 @@
           />
         </div>
       </div>
-      <p>Drag and drop to reorder list</p>
+      <p>Stay focused</p>
     </section>
     <script src="todo.js"></script>
   </body>
