@@ -21,6 +21,26 @@ var Pactive = [];
 
 let tg_num = 0;
 
+//img responsiveness
+const screen_width = window.matchMedia("(max-width: 480px)");
+function img_responsiveness(screen_width) {
+  if (todo_bodytag.style.backgroundColor == "rgb(24, 24, 36)") {
+    if (screen_width.matches) {
+      img_holder.src = "bg-mobile-dark.jpg";
+    } else {
+      img_holder.src = "bg-desktop-dark.jpg";
+    }
+  } else {
+    if (screen_width.matches) {
+      img_holder.src = "bg-mobile-light.jpg";
+    } else {
+      img_holder.src = "bg-desktop-light.jpg";
+    }
+  }
+}
+
+screen_width.addListener(img_responsiveness);
+
 //hover functions
 
 function hoverOn(element) {
@@ -220,7 +240,6 @@ function changeMode(button) {
     //night mode
     button.parentElement.innerHTML =
       '<i class="fa-solid fa-sun" id="sun" onclick="changeMode(this)"></i>';
-    img_holder.src = "bg-desktop-dark.jpg";
 
     todo_bodytag.style.backgroundColor = "rgb(24, 24, 36)";
 
@@ -234,11 +253,24 @@ function changeMode(button) {
     todo_input.style.color = "rgb(250, 250, 250)";
     task_input.style.color = "rgb(250, 250, 250)";
     todo_card.style.color = "rgb(250, 250, 250)";
+
+    if (todo_bodytag.style.backgroundColor == "rgb(24, 24, 36)") {
+      if (screen_width.matches) {
+        img_holder.src = "bg-mobile-dark.jpg";
+      } else {
+        img_holder.src = "bg-desktop-dark.jpg";
+      }
+    } else {
+      if (screen_width.matches) {
+        img_holder.src = "bg-mobile-light.jpg";
+      } else {
+        img_holder.src = "bg-desktop-light.jpg";
+      }
+    }
   } else if (z % 2 == 0) {
     //day mode
     button.parentElement.innerHTML =
       '<i class="fa-solid fa-moon" id="moon" onclick="changeMode(this)"></i>';
-    img_holder.src = "bg-desktop-light.jpg";
 
     todo_bodytag.style.backgroundColor = "rgb(250, 250, 250)";
 
@@ -252,10 +284,28 @@ function changeMode(button) {
     todo_input.style.color = "rgb(47, 79, 79)";
     task_input.style.color = "rgb(47, 79, 79)";
     todo_card.style.color = "rgb(47, 79, 79)";
-  }
 
-  //color of task lines with check or unchecked ticks
+    if (todo_bodytag.style.backgroundColor == "rgb(24, 24, 36)") {
+      if (screen_width.matches) {
+        img_holder.src = "bg-mobile-dark.jpg";
+      } else {
+        img_holder.src = "bg-desktop-dark.jpg";
+      }
+    } else {
+      if (screen_width.matches) {
+        img_holder.src = "bg-mobile-light.jpg";
+      } else {
+        img_holder.src = "bg-desktop-light.jpg";
+      }
+    }
+  }
 }
 
+//To fix the image that's loaded first
+
+const moon_button = document.getElementById("moon");
+moon_button.click();
+const sun = document.getElementById("sun");
+sun.click();
+
 //bottom border
-//mobile website imgs
