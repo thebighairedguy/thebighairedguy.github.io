@@ -23,11 +23,11 @@
       src="https://kit.fontawesome.com/8e0785f7b4.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="shortcut icon" href="favicon-32x32.png" />
+    <link rel="shortcut icon" href="clipboard-list-solid.svg" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
-  <body id="todo-bodytag">
+  <body id="todo-bodytag" onload="load_tasks()">
     <img id="todo-bg-img" src="bg-desktop-light.jpg" />
     <section id="todo-main">
       <div id="todo-title">
@@ -46,7 +46,7 @@
           <input type="text" id="task-input" name="task-input" />
         </form>
       </div>
-      <div id="todo-card">
+      <div id="todo-card"">
         <div id="tasks-div">
           <!--Task #-->
         </div>

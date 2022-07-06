@@ -56,6 +56,7 @@ function hoverOff(element) {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const input = form["task-input"];
+  if (task_input.value.length < 1) return;
 
   tg_num++;
 
@@ -71,6 +72,8 @@ form.addEventListener("submit", (e) => {
 
   activeButton.click();
   activeButton.click();
+
+  task_input.value = "";
 });
 
 function removetask(element) {
@@ -308,4 +311,38 @@ moon_button.click();
 const sun = document.getElementById("sun");
 sun.click();
 
-//bottom border
+//Save all tasks into local storage
+
+window.onbeforeunload = save_tasks;
+function save_tasks() {
+  //first turn both activeand completed buttons on
+  const activeButtonColor = getComputedStyle(activeButton).color;
+  const completedButtonColor =
+    getComputedStyle(completedButton).color;
+
+  if (activeButtonColor == "rgb(169, 169, 169)") {
+    activeButton.click();
+  }
+  if (completedButtonColor == "rgb(169, 169, 169)") {
+    completedButton.click();
+  }
+
+  //store in local storage
+  localStorage.setItem("all_tasks", tasksdiv.innerHTML);
+
+  return null;
+}
+
+//Load stored tasks from local storage
+
+function load_tasks(element) {
+  tasksdiv.innerHTML = localStorage.getItem("all_tasks");
+
+  $(".task-line").each(function () {
+    if (this.firstChild.nextSibling.style.color == "darkgray") {
+      Pcompleted.push(this);
+    } else {
+      Pactive.push(this);
+    }
+  });
+}
