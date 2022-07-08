@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="shop-light.css" id="css-file" />
+    <script
+      src="https://kit.fontawesome.com/8e0785f7b4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8e0785f7b4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="cart-shopping-solid.svg" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Shop It!</title>
+  </head>
+
+  <body>
+    <h1 id="page-title">Shop It!</h1>
+    <i
+      class="fa-solid fa-moon"
+      id="mode-switch"
+      onclick="mode_switcher(this)"
+    ></i>
+
+    <div id="items-main">
+      <div id="category-buttons">
+        <input
+          type="button"
+          value="electronics"
+          onclick="electronicsCategory(this)"
+        />
+        <input
+          type="button"
+          value="jewelery"
+          onclick="jeweleryCategory(this)"
+        />
+        <input
+          type="button"
+          value="men's clothing"
+          onclick="menCategory(this)"
+        />
+        <input
+          type="button"
+          value="women's clothing"
+          onclick="womenCategory(this)"
+        />
+        <input
+          type="button"
+          value="All"
+          onclick="allCategory(this)"
+          id="all_button"
+        />
+      </div>
+      <div id="items-all"></div>
+    </div>
+    <script src="shop.js"></script>
+  </body>
+</html>
