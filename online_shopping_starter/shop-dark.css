@@ -102,11 +102,50 @@ body {
 
 .item-description {
   margin: 0;
+  text-align: justify;
+}
+
+#load-screen {
+  background-color: rgb(249, 185, 49);
+  color: rgb(47, 49, 48);
+  border-radius: 6px;
+  display: none;
+  flex-direction: row;
+  column-gap: 8px;
+  padding: 4px 20px;
+  position: fixed;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+#load-screen > p {
+  margin: 0;
 }
 
 @media screen and (max-width: 480px) {
+  #category-buttons {
+    flex-direction: column;
+    row-gap: 4px;
+  }
+
   #items-all {
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 40px;
+  }
+
+  .item-card {
+    max-width: 70vw;
+  }
+
+  .item-image {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .item-title {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .item-description {
+    text-align: justify;
   }
 }

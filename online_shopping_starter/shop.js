@@ -6,6 +6,7 @@ const items_all = document.getElementById("items-all");
 const all_button = document.getElementById("all_button");
 const mode_switch_button = document.getElementById("mode-switch");
 const css_file = document.getElementById("css-file");
+const load_screen = document.getElementById("load-screen");
 
 let curr = "";
 let conversion_rate = 0;
@@ -1053,14 +1054,18 @@ function writeItems(products) {
 }
 
 async function allCategory(button) {
+  load_screen.style.display = "flex";
+
   products = await fetch("https://fakestoreapi.com/products");
   products = await products.json();
 
   writeItems(products);
+
+  load_screen.style.display = "none";
 }
 
 async function electronicsCategory(button) {
-  console.log(99);
+  load_screen.style.display = "flex";
 
   products = await fetch(
     `https://fakestoreapi.com/products/category/${button.value}`
@@ -1068,33 +1073,47 @@ async function electronicsCategory(button) {
   products = await products.json();
 
   writeItems(products);
+
+  load_screen.style.display = "none";
 }
 
 async function jeweleryCategory(button) {
+  load_screen.style.display = "flex";
+
   products = await fetch(
     `https://fakestoreapi.com/products/category/${button.value}`
   );
   products = await products.json();
 
   writeItems(products);
+
+  load_screen.style.display = "none";
 }
 
 async function menCategory(button) {
+  load_screen.style.display = "flex";
+
   products = await fetch(
     `https://fakestoreapi.com/products/category/${button.value}`
   );
   products = await products.json();
 
   writeItems(products);
+
+  load_screen.style.display = "none";
 }
 
 async function womenCategory(button) {
+  load_screen.style.display = "flex";
+
   products = await fetch(
     `https://fakestoreapi.com/products/category/${button.value}`
   );
   products = await products.json();
 
   writeItems(products);
+
+  load_screen.style.display = "none";
 }
 
 function mode_switcher(button) {
